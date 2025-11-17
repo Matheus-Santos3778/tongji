@@ -1,4 +1,4 @@
-pub fn mean(x: [i64; 5]) -> Option<f64>{
+pub fn mean(x: &[i64]) -> Option<f64>{
 
     let sum: i64 = x.iter().sum();
 
@@ -14,15 +14,11 @@ pub fn mean(x: [i64; 5]) -> Option<f64>{
 
 }
 
-pub fn vector_minus_scalar(x: [i64; 5], scalar: i64) -> [i64; 5] {
-
-    let result: [i64; 5] = x.map(|val| val - scalar);
-
-    result
-
+pub fn vector_minus_scalar(x: &[i64], scalar: i64) -> Vec<i64> {
+    x.iter().map(|&val| val - scalar).collect()
 }
 
-pub fn dot_product(x: [i64; 5], y: [i64; 5]) -> i64 {
+pub fn dot_product(x: &[i64], y: &[i64]) -> i64 {
 
     let product: i64 = x.iter()
                         .zip(y.iter())
